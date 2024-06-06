@@ -3,6 +3,7 @@
 import { characters } from "./characters.js";
 // import { antiHeroes } from "./antiheroes.js";
 
+//Get references to the HTML elements we'll use...
 const myButton = document.getElementById("myButton1");
 const focusedCharacterParagraph = document.getElementById(
     "focusedCharacterParagraph"
@@ -13,6 +14,12 @@ myButton.addEventListener("click", () => {
     const searchTerm = prompt("input search term");
     focusedCharacterParagraph.outerHTML = "You said: " + searchTerm;
 });
+
+const characterLiElements = makeLiElementsForCharacters();
+
+for (const li of characterLiElements) {
+    myList.appendChild(li);
+}
 
 function makeLiElementsForCharacters() {
     return characters.map((character) => {
@@ -30,9 +37,4 @@ function makeLiElementsForCharacters() {
 
         return element;
     });
-}
-const characterLiElements = makeLiElementsForCharacters();
-
-for (const li of characterLiElements) {
-    myList.appendChild(li);
 }
