@@ -3,25 +3,22 @@
 import { characters } from "./characters.js";
 // import { antiHeroes } from "./antiheroes.js";
 
-//Get references to the HTML elements we'll use...
-const myButton = document.getElementById("myButton1");
-const focusedCharacterParagraph = document.getElementById(
-    "focusedCharacterParagraph"
-);
-const myList = document.getElementById("charactersUL");
+setupSearchButton();
+renderCharacterListToHTML();
 
-myButton.addEventListener("click", () => {
-    const searchTerm = prompt("input search term");
-    focusedCharacterParagraph.outerHTML = "You said: " + searchTerm;
-});
-
-const characterLiElements = makeLiElementsForCharacters();
-
-for (const li of characterLiElements) {
-    myList.appendChild(li);
+function renderCharacterListToHTML() {
+    const characterLiElements = makeLiElementsForCharacters();
+    const myList = document.getElementById("charactersUL");
+    for (const li of characterLiElements) {
+        myList.appendChild(li);
+    }
 }
 
 function makeLiElementsForCharacters() {
+    const focusedCharacterParagraph = document.getElementById(
+        "focusedCharacterParagraph"
+    );
+
     return characters.map((character) => {
         //Not yet attached to any point in the DOM tree
         const element = document.createElement("li");
@@ -36,5 +33,18 @@ function makeLiElementsForCharacters() {
         });
 
         return element;
+    });
+}
+
+function setupSearchButton() {
+    const searchTermDisplay = document.getElementById("searchTermDisplay");
+
+    const myButton = document.getElementById("myButton1");
+    myButton.addEventListener("click", () => {
+        const searchTerm = prompt("input search term");
+        searchTermDisplay.outerHTML =
+            "You said: " +
+            searchTerm +
+            " but we don't do anything with this info yet";
     });
 }

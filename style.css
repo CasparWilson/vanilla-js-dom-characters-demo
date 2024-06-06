@@ -5,16 +5,16 @@ html {
     color: white;
 }
 
+body {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 .big {
     font-size: 4rem;
     font-family: "Abril Fatface", cursive;
     text-decoration: overline;
     text-align: center;
-}
-
-body {
-    max-width: 800px;
-    margin: 0 auto;
 }
 
 li {
@@ -23,6 +23,5 @@ li {
 
 #focusedCharacterParagraph {
     border-bottom: 1px solid white;
-    /* border-radius: 4px; */
     padding: 1rem;
 }
