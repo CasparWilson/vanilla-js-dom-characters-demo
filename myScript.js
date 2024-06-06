@@ -5,6 +5,7 @@ import { characters } from "./characters.js";
 
 renderCharacterListToHTML();
 setupSearchButton();
+setupCauseAnErrorButton();
 
 function renderCharacterListToHTML() {
     const characterLiElements = makeLiElementsForCharacters();
@@ -46,7 +47,7 @@ function makeLiElementsForCharacters() {
 function setupSearchButton() {
     const searchTermDisplay = document.getElementById("searchTermDisplay");
 
-    const myButton = document.getElementById("myButton1");
+    const myButton = document.getElementById("mySearchButton");
     myButton.addEventListener("click", () => {
         const searchTerm = prompt("input search term");
         searchTermDisplay.innerHTML =
@@ -54,4 +55,16 @@ function setupSearchButton() {
             searchTerm +
             " but we don't do anything with this info yet";
     });
+}
+
+function setupCauseAnErrorButton() {
+    const myButton = document.getElementById("causeAnErrorButton");
+    myButton.addEventListener("click", screwUpIntentionally);
+}
+
+function screwUpIntentionally() {
+    console.log("i am about to cause an error");
+    const x = 10;
+    x = 20;
+    console.log("This function is about to finish normally");
 }
