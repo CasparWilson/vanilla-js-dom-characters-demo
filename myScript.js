@@ -1,15 +1,17 @@
 //Modern browsers support ES5 modules with import/export as normal
-import { getElementByIdOrFail } from "./utils.js";
+// import { getElementByIdOrFail } from "./utils.js";
 import { characters } from "./characters.js";
 // import { antiHeroes } from "./antiheroes.js";
 
-const myButton = getElementByIdOrFail("myButton1");
-const focusedCharacterPara = getElementByIdOrFail("focusedCharacterPara");
-const myList = getElementByIdOrFail("charactersUL");
+const myButton = document.getElementById("myButton1");
+const focusedCharacterParagraph = document.getElementById(
+    "focusedCharacterParagraph"
+);
+const myList = document.getElementById("charactersUL");
 
 myButton.addEventListener("click", () => {
     const searchTerm = prompt("input search term");
-    focusedCharacterPara.outerHTML = "You said: " + searchTerm;
+    focusedCharacterParagraph.outerHTML = "You said: " + searchTerm;
 });
 
 function makeLiElementsForCharacters() {
@@ -22,7 +24,7 @@ function makeLiElementsForCharacters() {
             alert(character.powers.join(", "));
         });
         element.addEventListener("mouseover", () => {
-            focusedCharacterPara.innerText =
+            focusedCharacterParagraph.innerText =
                 character.name + ": " + character.powers.join(", ");
         });
 
