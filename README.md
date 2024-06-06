@@ -14,7 +14,16 @@
 
 1. How does the JavaScript in myScript.js get access to the elements of the HTML page that it needs to manipulate or monitor?
 1. Add (or substitute) some of your favourite characters from fiction to the list.
+1. look for some functions or methods that are called which are not defined in myScript, and any variables which are used which are not declared here. These are likely some DOM objects and methods.
+    1. Search for their documentation on google, including the keyword "MDN".
+    1. Read a little bit of the documentation for each of these functions to see if anything makes sense. No need to take notes.
+1. use console.log to inspect `characterLiElements` after it is initialised, to see what's inside.
 1. change the code so that when a character is clicked on, its name is displayed in capitals, as well as its abilities reported.
 1. Add another button to the html page and write javascript in myScript.js to make that new button do something different when clicked
     - e.g. remove one character from the array
     - e.g. pick and display one character at random
+1. list ALL functions or methods that are called which are not defined in myScript, and any variables which are used which are not declared here. These are likely some DOM objects and methods.
+
+### Optional tasks (advanced):
+
+1. The search button doesn't currently do much. Change the code so that it only shows characters in whose name the sought text appears. You'll likely have to find out how to remove the existing contents of the `charactersUL` element.

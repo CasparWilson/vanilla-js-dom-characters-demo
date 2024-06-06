@@ -1,10 +1,13 @@
 //Modern browsers support ES5 modules with import/export as normal
 // import { getElementByIdOrFail } from "./utils.js";
-import { characters } from "./characters.js";
 // import { antiHeroes } from "./antiheroes.js";
+import { characters } from "./characters.js";
 
-setupSearchButton();
+const focusedCharacterParagraph = document.getElementById(
+    "focusedCharacterParagraph"
+);
 renderCharacterListToHTML();
+setupSearchButton();
 
 function renderCharacterListToHTML() {
     const characterLiElements = makeLiElementsForCharacters();
@@ -14,26 +17,30 @@ function renderCharacterListToHTML() {
     }
 }
 
-function makeLiElementsForCharacters() {
-    const focusedCharacterParagraph = document.getElementById(
-        "focusedCharacterParagraph"
-    );
+function createOneLiElementForCharacter(character) {
+    //This new element will not yet be attached to any point in the DOM tree
+    const element = document.createElement("li");
 
-    return characters.map((character) => {
-        //Not yet attached to any point in the DOM tree
-        const element = document.createElement("li");
-        element.innerHTML = character.name + " from " + character.book;
+    element.innerHTML = character.name + " from " + character.book;
 
-        element.addEventListener("click", () => {
-            alert(character.powers.join(", "));
-        });
-        element.addEventListener("mouseover", () => {
-            focusedCharacterParagraph.innerText =
-                character.name + ": " + character.powers.join(", ");
-        });
-
-        return element;
+    element.addEventListener("click", () => {
+        alert(character.powers.join(", "));
     });
+    element.addEventListener("mouseover", () => {
+        focusedCharacterParagraph.innerText =
+            character.name + ": " + character.powers.join(", ");
+    });
+    return element;
+}
+
+function makeLiElementsForCharacters() {
+    const arrayOfLiElements = [];
+
+    for (const character of characters) {
+        const element = createOneLiElementForCharacter(character);
+        arrayOfLiElements.push(element);
+    }
+    return arrayOfLiElements;
 }
 
 function setupSearchButton() {
