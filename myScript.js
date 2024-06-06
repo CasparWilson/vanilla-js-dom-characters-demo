@@ -3,9 +3,6 @@
 // import { antiHeroes } from "./antiheroes.js";
 import { characters } from "./characters.js";
 
-const focusedCharacterParagraph = document.getElementById(
-    "focusedCharacterParagraph"
-);
 renderCharacterListToHTML();
 setupSearchButton();
 
@@ -18,6 +15,9 @@ function renderCharacterListToHTML() {
 }
 
 function createOneLiElementForCharacter(character) {
+    const focusedCharacterParagraph = document.getElementById(
+        "focusedCharacterParagraph"
+    );
     //This new element will not yet be attached to any point in the DOM tree
     const element = document.createElement("li");
 
@@ -49,7 +49,7 @@ function setupSearchButton() {
     const myButton = document.getElementById("myButton1");
     myButton.addEventListener("click", () => {
         const searchTerm = prompt("input search term");
-        searchTermDisplay.outerHTML =
+        searchTermDisplay.innerHTML =
             "You said: " +
             searchTerm +
             " but we don't do anything with this info yet";
