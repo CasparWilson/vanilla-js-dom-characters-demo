@@ -12,6 +12,12 @@
 
 (Where these are _questions_, make sure you can answer them.)
 
+1. Take a look at index.html and study the contents of the `body` element.
+1. In the browser, right-click and choose Inspect, then choose the elements tab and look at what HTML elements are in the page body. How does what you see here differ from what you see in the index.html file?
+1. Leave the elements display open while hovering over the characters displayed in the normal browser view. You should see something changing - what's happening?
+1. Open myScript.js and use vscode's "Fold all" command (accessed with ctrl-shift-p then "fold all") to get an overview of this script.
+1. How many functions are declared in myScript.js?
+1. Which functions are actually _called_ when myScript.js is executed? Judging by the function names what do you think they do?
 1. How does the JavaScript in myScript.js get access to the elements of the HTML page that it needs to manipulate or monitor?
 1. Add (or substitute) some of your favourite characters from fiction to the list.
 1. look for some functions or methods that are called which are not defined in myScript, and any variables which are used which are not declared here. These are likely some DOM objects and methods.
