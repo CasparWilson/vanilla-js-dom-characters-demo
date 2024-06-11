@@ -6,6 +6,7 @@ import { characters } from "./characters.js";
 renderCharacterListToHTML();
 setupSearchButton();
 setupCauseAnErrorButton();
+setupKillOneOffButton();
 
 function renderCharacterListToHTML() {
     const characterLiElements = makeLiElementsForCharacters();
@@ -25,8 +26,11 @@ function createOneLiElementForCharacter(character) {
     element.innerHTML = character.name + " from " + character.book;
 
     element.addEventListener("click", () => {
-        alert(character.powers.join(", "));
+        alert(character.name.toUpperCase() + ' ' + character.powers.join(", "));
     });
+    element.addEventListener("click", () => {
+
+    })
     element.addEventListener("mouseover", () => {
         focusedCharacterParagraph.innerText =
             character.name + ": " + character.powers.join(", ");
@@ -67,4 +71,14 @@ function screwUpIntentionally() {
     const x = 10;
     x = 20;
     console.log("This function is about to finish normally");
+}
+
+function setupKillOneOffButton() {
+    const myButton = document.getElementById("killOneOffButton");
+    myButton.addEventListener("click", killOneOff)
+}
+
+function killOneOff() {
+    console.log('button test')
+    makeC
 }

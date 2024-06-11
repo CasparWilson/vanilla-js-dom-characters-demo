@@ -60,4 +60,16 @@ export const characters = [
         book: "Mistborn series",
         powers: ["Allomancy", "Steelpushing", "Ironpulling"],
     },
+
+    {
+        name: 'Arthur Dent',
+        book: "Hitchhiker's Guide to the Galaxy",
+        powers: ['Dressing Gown', 'Surviving Bad Poetry', 'Having Home Demolished'],
+    },
+
+    {
+        name: 'Elizabeth Bennett',
+        book: "Pride and Prejudice",
+        powers: ['Head Strong', 'Book Smart', 'Poor Judgement'],
+    }
 ];
